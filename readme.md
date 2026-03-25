@@ -45,7 +45,7 @@ Hệ thống **GitHub Classroom** sẽ tự động chấm điểm bài của b�
    ```bash
    git add .
    ```
-3.Tạo commit:
+3. Tạo commit:
    ```bash
    git commit -m "Hoan thanh bai thi giua ky"
    ```

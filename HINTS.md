@@ -8,6 +8,7 @@ Chào các bạn sinh viên, nếu các bạn đang bị "mắc kẹt" ở các 
 
 ### Gợi ý cho Test 4 & 5: Kiểm tra trùng lặp Username (Duplicate Check)
 **Vấn đề:** Hiện tại API đang cho phép tạo ra N tài khoản có cùng Username, điều này làm hỏng tính toàn vẹn của hệ thống.
+
 **Cách giải quyết:** Trước khi gọi lệnh `_context.Users.Add()`, bạn cần truy vấn xem Username đó đã tồn tại trong Database chưa.
 
 **Gợi ý Code (Entity Framework Core):**
@@ -24,7 +25,8 @@ if (isExists)
 
 ### Gợi ý cho Test 6: Băm mật khẩu (Password Hashing)
 **Vấn đề:** Lưu mật khẩu dưới dạng chữ thô (plain-text) là một "tội ác" trong bảo mật. Nếu Database bị hack, toàn bộ mật khẩu của người dùng sẽ bị lộ.
-Cách giải quyết: Không tự viết thuật toán mã hóa! Hãy sử dụng thư viện chuyên dụng như BCrypt.
+
+**Cách giải quyết:** Không tự viết thuật toán mã hóa! Hãy sử dụng thư viện chuyên dụng như BCrypt.
 
 **Bước 1: Cài đặt thư viện**
 Mở Terminal, đứng ở thư mục gốc và cài package này vào project API:
@@ -58,6 +60,7 @@ if (!isPasswordCorrect) return Unauthorized("Sai mật khẩu");
 
 ### Gợi ý cho Test 7: Tạo chuỗi JWT Token (JSON Web Token)
 **Vấn đề:** Hàm Login hiện tại đang trả về một chuỗi string giả mạo, Front-end không thể dùng nó để xác thực được.
+
 **Cách giải quyết:** Bạn phải dùng các class có sẵn của .NET để "nhào nặn" ra một JWT Token gồm 3 phần chuẩn quốc tế.
 
 Các bước tạo JWT trong AuthController:
