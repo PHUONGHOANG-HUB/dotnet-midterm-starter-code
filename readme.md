@@ -20,18 +20,17 @@ Dự án này được viết bằng **.NET 10** theo mô hình Clean Architectu
 
 ### PHẦN 1: SỬA LỖI MÔI TRƯỜNG & CẤU HÌNH (4.0 ĐIỂM)
 Dự án hiện tại **không thể Build** và **không chạy được**. Bạn hãy tìm và sửa các lỗi trong `src/API/Program.cs` và các file `.csproj`:
-1. **(1.0đ) Fix lỗi Build:** Dự án đang dùng thư viện Swagger cũ kĩ, hãy dọn dẹp nó và cài đặt `Microsoft.AspNetCore.OpenApi` chuẩn của .NET 10. Nhớ thêm `using Scalar.AspNetCore;`.
-2. **(1.5đ) Fix lỗi Database:** EF Core chưa được cấu hình. Bạn cần cài gói `Microsoft.EntityFrameworkCore.Design` vào project API và đăng ký `AppDbContext` vào hệ thống Dependency Injection.
-3. **(1.5đ) Khởi chạy UI:** Đảm bảo khi chạy ứng dụng, truy cập vào `http://localhost:<port>/scalar/v1` sẽ hiện lên giao diện tài liệu API.
+1. ** Fix lỗi Build:** Dự án đang dùng thư viện Swagger cũ kĩ, hãy dọn dẹp nó và cài đặt `Microsoft.AspNetCore.OpenApi` chuẩn của .NET 10. Nhớ thêm `using Scalar.AspNetCore;`.
+2. ** Fix lỗi Database:** EF Core chưa được cấu hình. Bạn cần cài gói `Microsoft.EntityFrameworkCore.Design` vào project API và đăng ký `AppDbContext` vào hệ thống Dependency Injection.
+3. ** Khởi chạy UI:** Đảm bảo khi chạy ứng dụng, truy cập vào `http://localhost:<port>/scalar/v1` sẽ hiện lên giao diện tài liệu API.
 
 ### PHẦN 2: SỬA LỖI NGHIỆP VỤ - BUSINESS LOGIC (6.0 ĐIỂM)
 Nhân viên cũ đã code phần `AuthController.cs` rất cẩu thả. Bạn hãy vào đó và sửa lại:
 
-4. **(1.5đ) Bắt lỗi trùng lặp:** Hàm Register hiện đang cho phép tạo nhiều User có cùng Username. Hãy thêm code kiểm tra, nếu trùng phải trả về `400 Bad Request`.
-5. **(1.5đ) Mã hóa mật khẩu:** Mật khẩu đang bị lưu dưới dạng Plain-text. Hãy cài thư viện (ví dụ: `BCrypt.Net-Next`) để băm (Hash) mật khẩu trước khi lưu xuống Database.
-6. **(1.0đ) Bảo mật Đăng nhập:** Sửa lại hàm Login để so sánh mật khẩu bằng thuật toán Hash. Nếu sai pass trả về `401 Unauthorized`.
-7. **(1.0đ) Băm mật khẩu:** Mật khẩu không được lưu trong database bằng dạng text tự nhiên.
-8. **(2.0đ) Trả về JWT Token:** Hàm Login đang trả về một chuỗi Fake. Hãy viết code để sinh ra một chuỗi JSON Web Token (JWT) hợp lệ.
+4. ** Bắt lỗi trùng lặp:** Hàm Register hiện đang cho phép tạo nhiều User có cùng Username. Hãy thêm code kiểm tra, nếu trùng phải trả về `400 Bad Request`.
+5. ** Mã hóa mật khẩu:** Mật khẩu đang bị lưu dưới dạng Plain-text. Hãy cài thư viện (ví dụ: `BCrypt.Net-Next`) để băm (Hash) mật khẩu trước khi lưu xuống Database.
+6. ** Bảo mật Đăng nhập:** Sửa lại hàm Login để so sánh mật khẩu bằng thuật toán Hash. Nếu sai pass trả về `401 Unauthorized`.
+7. ** Trả về JWT Token:** Hàm Login đang trả về một chuỗi Fake. Hãy viết code để sinh ra một chuỗi JSON Web Token (JWT) hợp lệ.
 *(💡 **Gợi ý:** Nếu bạn gặp khó khăn ở Phần 2, hãy mở file `HINTS.md` đính kèm trong thư mục này để xem phao cứu sinh nhé!)*
 
 ---
